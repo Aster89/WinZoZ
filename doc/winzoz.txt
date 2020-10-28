@@ -1,0 +1,13 @@
+*winzoz.txt*	For Vim version 8.2	Last change: 2020 October 31
+
+                              _______    _______ ~
+            ___     _____    /      /   /      / ~
+            \  | __ \  _/_ __\__   / ___\__   /  ~
+            |  |/  |/ (_) '_ \ /  / / _ \ /  /   ~
+            |    |    / | | | /  /_\ (_) /  /_   ~
+            |___/|___/|_|_| |/     \\___/     \  ~
+                            /______/   /______/  ~
+
+    Functionality for easy windows motion and resizing
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
