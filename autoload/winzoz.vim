@@ -8,6 +8,9 @@ function! winzoz#goZoZ() abort
     let key = ''
     while key !=# "\<Esc>"
       let key = nr2char(getchar())
+      if key ==# 'g' || key ==# "\<C-g>"
+        let key = join([key, nr2char(getchar())], '')
+      endif
       execute "normal! \<c-w>" . key
       echo ''
       redrawstatus!
@@ -20,7 +23,6 @@ function! winzoz#goZoZ() abort
   endtry
 endfunction
 
-" drawing function
 function! s:make_status_line() abort
   let text = 'Go WinZoZ'
   let text .= repeat(' ', (&columns - len(text))/2)
