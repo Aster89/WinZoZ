@@ -61,7 +61,31 @@ function! s:g_takes_one_more_key(key) abort
 endfunction
 
 function! s:make_status_line() abort
-  let text = 'Go WinZoZ'
-  let text .= repeat(' ', (&columns - len(text))/2)
-  return repeat(' ', &columns - len(text) - 1) .  text
+  let path = @%
+  let space = &columns - len(path)
+  if space >= 0
+    return path . repeat(' ', space - 1)
+  else
+    let space *= -1
+    let space += 2
+    let components = split(path, '/', 1)
+    for index in range(len(components))
+      let complen = len(components[index]) - 2
+      let reduction = 0
+      if complen >= 1
+        if space > complen
+          let reduction = complen
+          let space -= complen - 1
+        else
+          let reduction = space
+          let space = 0
+        endif
+        if reduction > 0
+          let components[index] = components[index][0] . "…" . components[index][reduction + 1:]
+        endif
+      endif
+    endfor
+    let path = join(components, '/')
+    return path . repeat(' ', space - 1)
+  endif
 endfunction
