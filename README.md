@@ -1,13 +1,21 @@
-# WinZoZ
+```
+                              _______    _______
+            ___     _____    //     /   //     /
+            \  | __ \  _/_ __\\_   / ___\\_   /
+            |  |/  |/ (_) '_ \ // / / _ \ // /
+            |    |    / | | | // /_\ (_) // /_
+            |___/|___/|_|_| |//    \\___//    \
+                            //_____/   //_____/
+```
 
 The plugin for easy window navigation.
 
 Demo
 ----
 
-![WinZoZ demo](https://user-images.githubusercontent.com/20521900/97799961-55007280-1c31-11eb-9821-8b604345ac1b.gif)
+![WinZoZ demo][1]
 
-([This is the lovely beast in the background.](https://en.wikipedia.org/wiki/Chlamydosaurus))
+([This is the lovely animal in the background.][2])
 
 Usage
 -----
@@ -35,6 +43,13 @@ Motivation
 
 Long story short, resizing windows has always been a pain for me and, with a large screen and many open windows, even pressing <kbd>Ctrl-W</kbd> several times has become a pain.
 
-Since [I did not find an existing plugin addressing this need](https://vi.stackexchange.com/questions/27704/does-a-plugin-exist-which-allows-moving-across-the-windows-and-split-them-with), I started reading [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/), which made me thing I could write a plugin myself, so I did it and had it [reviewed on CodeReview](https://codereview.stackexchange.com/questions/251269/vim-plugin-for-easy-window-navigation), and here it is.
+Since [I did not find an existing plugin addressing this need][3], I started reading [Learn Vimscript the Hard Way][4], which made me thing I could write a plugin myself, so I did it and had it [reviewed on CodeReview][5], and here it is.
 
-Why WinZoZ? [Oh, well...](https://nonciclopedia.org/wiki/Windows)
+Why WinZoZ? [Oh, well…][6]
+
+[1]:https://user-images.githubusercontent.com/20521900/97799961-55007280-1c31-11eb-9821-8b604345ac1b.gif
+[2]:https://en.wikipedia.org/wiki/Chlamydosaurus
+[3]:https://vi.stackexchange.com/questions/27704/does-a-plugin-exist-which-allows-moving-across-the-windows-and-split-them-with
+[4]:https://learnvimscriptthehardway.stevelosh.com/
+[5]:https://codereview.stackexchange.com/questions/251269/vim-plugin-for-easy-window-navigation
+[6]:https://nonciclopedia.org/wiki/Windows
