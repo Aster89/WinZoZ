@@ -1,0 +1,24 @@
+Given vim (Empty file is enough):
+
+Do (Split vertically, move right, split horizontally, move down, go normal mode, move up one line):
+  \<space>wvlsj\<esc>k
+
+Then (Current win is the expected position in the layout):
+  AssertEqual win_getid(), winlayout()[1][1][1][1][1]
+
+Execute (Save current number of tabs (it's not trivially 1, as Vader takes its own tab)):
+  let numtabs = tabpagenr('$')
+
+Do (Move current window to new tab, move up one line):
+  \<space>wT\<esc>k
+
+Then (Tab 2 is active):
+  let newnumtabs = tabpagenr('$')
+  AssertEqual newnumtabs, numtabs + 1
+
+Do (Close 2 of the 3 windows, go normal mode, move up one line):
+  \<space>wqq\<esc>k
+
+Then (Last window standing):
+  AssertEqual winlayout()[0], 'leaf'
+  AssertEqual winlayout()[1], win_getid()
