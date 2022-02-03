@@ -4,7 +4,7 @@ function! winzoz#goZoZ() abort
   redrawstatus!
   exe 'echohl ' . g:winzoz_statusline_hl_group
   let columns = &columns
-  let GetChar = function('getchar')
+  let GetChar = function('getcharstr')
   try
     echo s:make_status_line(expand('%'), columns)
     let key = ''
@@ -37,7 +37,7 @@ function! s:strip_ctrl(key) abort
         \ "\<C-X>": "x",
         \ }
   if has_key(s:ctrl_map, a:key)
-    return s:strip_ctrl[a:key]
+    return s:ctrl_map[a:key]
   else
     return a:key
   endif
@@ -45,10 +45,10 @@ endfunction
 
 function! s:get_count_and_key(getkey) abort
   let l:count = ""
-  let key = s:strip_ctrl(nr2char(a:getkey()))
+  let key = s:strip_ctrl(a:getkey())
   while key =~ "[0-9]"
     let l:count .= key
-    let key = nr2char(a:getkey())
+    let key = a:getkey()
   endw
   return [key, l:count]
 endfunction
@@ -56,7 +56,7 @@ endfunction
 function! s:one_more_key_after_g(getkey, key) abort
   let key = a:key
   if key ==# 'g' || key ==# "\<C-g>"
-    let key = join([key, nr2char(a:getkey())], '')
+    let key = join([key, a:getkey()], '')
   endif
   return key
 endfunction

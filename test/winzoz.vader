@@ -3,13 +3,13 @@ Given vim (Empty file is enough):
 Do (Split vertically, move right, split horizontally, move down, go normal mode, move up one line):
   \<space>wvlsj\<esc>k
 
-Then (Current win is the expected position in the layout):
+Then (Current window is at the expected position in the layout):
   AssertEqual win_getid(), winlayout()[1][1][1][1][1]
 
 Execute (Save current number of tabs (it's not trivially 1, as Vader takes its own tab)):
   let numtabs = tabpagenr('$')
 
-Do (Move current window to new tab, move up one line):
+Do (Move current window to new tab, go normal mode, move up one line):
   \<space>wT\<esc>k
 
 Then (Tab 2 is active):
@@ -22,3 +22,22 @@ Do (Close 2 of the 3 windows, go normal mode, move up one line):
 Then (Last window standing):
   AssertEqual winlayout()[0], 'leaf'
   AssertEqual winlayout()[1], win_getid()
+
+" Via the technique suggested by Luc Hermitte: https://vi.stackexchange.com/a/36705/6498
+Execute (Capture s: functions):
+  let snr = matchstr(matchstr(split(execute('scriptnames'), "\n"), 'autoload/winzoz.vim'), '^ *\d\+')
+  let StripCtrl = function('<SNR>' . snr . '_strip_ctrl')
+  let GetCountAndKey = function('<SNR>' . snr . '_get_count_and_key')
+  let OneMoreKeyAfterG = function('<SNR>' . snr . '_one_more_key_after_g')
+  let MakeStatusLine = function('<SNR>' . snr . '_make_status_line')
+
+Then (Test s: functions):
+  AssertEqual StripCtrl("\<C-G>"), 'g'
+  AssertEqual StripCtrl("\<C-X>"), 'x'
+  AssertEqual StripCtrl("\<S-X>"), "\<S-X>"
+  AssertEqual StripCtrl('x'), 'x'
+  AssertEqual OneMoreKeyAfterG({-> 'k'}, 'j'), 'j'
+  AssertEqual OneMoreKeyAfterG({-> 'k'}, 'g'), 'g' . 'k'
+  let path = '/some/path/to/file.txt'
+  let n = len(path) + 10
+  AssertEqual MakeStatusLine(path, n), path . repeat(' ', n - len(path) - 1)
