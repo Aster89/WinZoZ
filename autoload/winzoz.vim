@@ -4,13 +4,12 @@ function! winzoz#goZoZ() abort
   redrawstatus!
   exe 'echohl ' . g:winzoz_statusline_hl_group
   let columns = &columns
-  let GetChar = function('getcharstr')
   try
     echo s:make_status_line(expand('%'), columns)
     let key = ''
     while key !=# "\<Esc>"
-      let [key, l:count] = s:get_count_and_key(GetChar)
-      let key = s:one_more_key_after_g(GetChar, key)
+      let [key, l:count] = s:get_count_and_key(g:Winzoz_getchar)
+      let key = s:one_more_key_after_g(g:Winzoz_getchar, key)
       execute "normal! \<c-w>" . l:count . key
       echo ''
       redrawstatus!
