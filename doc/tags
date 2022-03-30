@@ -1,1 +1,10 @@
+WinZoZ	winzoz.txt	/*WinZoZ*
+WinZoZConfig	winzoz.txt	/*WinZoZConfig*
+WinZoZContents	winzoz.txt	/*WinZoZContents*
+WinZoZEnter	winzoz.txt	/*WinZoZEnter*
+WinZoZIntro	winzoz.txt	/*WinZoZIntro*
+WinZoZMappings	winzoz.txt	/*WinZoZMappings*
+g:winzoz_disable	winzoz.txt	/*g:winzoz_disable*
+g:winzoz_style	winzoz.txt	/*g:winzoz_style*
+g:winzoz_trigger	winzoz.txt	/*g:winzoz_trigger*
 winzoz.txt	winzoz.txt	/*winzoz.txt*
