@@ -2,7 +2,7 @@
 
 function! winzoz#goZoZ() abort
   redrawstatus!
-  exe 'echohl ' . g:winzoz_statusline_hl_group
+  exe 'echohl ' . g:winzoz_style
   let columns = &columns
   try
     echo s:make_status_line(expand('%'), columns)
