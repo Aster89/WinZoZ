@@ -17,7 +17,7 @@ endif
 execute 'nmap <silent> ' . g:winzoz_trigger . ' <Plug>(go-zoz-navigation)'
 
 " https://vi.stackexchange.com/questions/36732/when-was-getcharstr-introduced-and-how-could-i-have-found-the-answer-my-self
-if v:versionlong >= 8022957
+if exists('v:versionlong') && v:versionlong >= 8022957
   let g:Winzoz_getchar = {-> getcharstr()}
 else
   let g:Winzoz_getchar = {-> nr2char(getchar())}
