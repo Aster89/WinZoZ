@@ -5,7 +5,7 @@ function! winzoz#goZoZ() abort
   exe 'echohl ' . g:winzoz_style
   let columns = &columns
   try
-    echo s:make_status_line(expand('%'), columns)
+    echo s:make_status_line(expand('%:p'), columns)
     let key = ''
     while key !=# "\<Esc>"
       let [key, l:count] = s:get_count_and_key(g:Winzoz_getchar)
@@ -13,7 +13,7 @@ function! winzoz#goZoZ() abort
       execute "normal! \<c-w>" . l:count . key
       echo ''
       redrawstatus!
-      echo s:make_status_line(expand('%'), columns)
+      echo s:make_status_line(expand('%:p'), columns)
     endw
     echo ''
     redrawstatus!
