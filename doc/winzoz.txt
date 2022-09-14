@@ -76,7 +76,7 @@ Highlight group used to style the status line when WinZoZ mode is active.
 
 Default: 'Search'
 >
-  let g:ycm_auto_stop_csharp_server = 'Search'
+  let g:winzoz_style = 'Search'
 <
 
 ------------------------------------------------------------------------------
