@@ -34,6 +34,9 @@ forwarded to Vim with a <C-w> prepended to it.
 That is to say that if you hit jkl<Esc> when in WinZoZ mode, it will be like
 hitting <C-w>j<C-w>k<C-w>l in normal mode.
 
+During WinZoZ mode, the command line can be populated with text (e.g. the
+name of the current buffer) and style with some |highlight-groups|.
+
 
 ==============================================================================
 2. Mappings                                                   *WinZoZMappings*
@@ -60,7 +63,7 @@ Note: This mapping is not customizable because... come one, we are Vim users!
 
 
 ------------------------------------------------------------------------------
-3.3 *g:winzoz_trigger*
+3.1 *g:winzoz_trigger*
 
 Normal mode key combination to enter WinZoZ mode.
 
@@ -72,7 +75,7 @@ Default: '<Leader>w'
 ------------------------------------------------------------------------------
 3.2 *g:winzoz_style*
 
-Highlight group used to style the status line when WinZoZ mode is active.
+Highlight group used to style the command line when WinZoZ mode is active.
 
 Default: 'Search'
 >
@@ -80,7 +83,17 @@ Default: 'Search'
 <
 
 ------------------------------------------------------------------------------
-3.3 *g:winzoz_disable*
+3.3 *g:Winzoz_make_status_line_text*
+
+Function generating the text for the command line when WinZoZ mode is active.
+
+Default: () => expand('%:p')
+>
+  let g:Winzoz_make_status_line_text = () => expand('%:p')
+<
+
+------------------------------------------------------------------------------
+3.4 *g:winzoz_disable*
 
 Can be set to `v:true` to disable the plugin:
 >

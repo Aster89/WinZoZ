@@ -22,15 +22,23 @@ Usage
 
 Upon installing the plugin,
 
-  - <kbd>\<leader\></kbd><kbd>w</kbd> will turn on the WinZoZ mode (a colored status bar will make it apparent):
-    - every key pressed when this mode is active will be interpreted as if you pressed it after hitting <kbd>Ctrl-W</kbd>;
+  - <kbd>\<leader\></kbd><kbd>w</kbd> will turn on the WinZoZ mode (a colored
+    status bar will make it apparent):
+    - every key pressed when this mode is active will be interpreted as if you
+      pressed it after hitting <kbd>Ctrl-W</kbd>;
   - by hitting <kbd>Escape</kbd> you'll go back to normal mode.
 
 Customization points
 --------------------
 
-  - If you're not happy with <kbd>\<leader\></kbd><kbd>w</kbd>, you can define `g:winzoz_trigger` in your `vimrc`.
-  - When the WinZoZ mode is active, the status bar is colored with the `Search` highlight group. You can change this by defining `g:winzoz_style` as you prefer.
+  - If you're not happy with <kbd>\<leader\></kbd><kbd>w</kbd>, you can define
+    `g:winzoz_trigger` in your `vimrc`.
+  - When the WinZoZ mode is active, the status bar is colored with the `Search`
+    highlight group. You can change this by defining `g:winzoz_style` as you
+    prefer.
+  - When the WinZoZ mode is active, the status bar is populated with the full
+    path of the current buffer. You can change this by defining the
+    `g:Winzoz_make_status_line_text` function.
   - There's an option to disable the plugin, but why doing it?
 
 Installation
@@ -42,9 +50,14 @@ However you like. I use [vim-plug](https://github.com/junegunn/vim-plug).
 Motivation
 ----------
 
-Long story short, resizing windows has always been a pain for me and, with a large screen and many open windows, even pressing <kbd>Ctrl-W</kbd> several times has become a pain.
+Long story short, resizing and navigating windows has always been a pain for me
+and, with a large screen and many open windows, even pressing <kbd>Ctrl-W</kbd>
+several times has become a pain.
 
-Since [I did not find an existing plugin addressing this need][3], I started reading [Learn Vimscript the Hard Way][4], which made me thing I could write a plugin myself, so I did it and had it [reviewed on CodeReview][5], and here it is.
+Since [I did not find an existing plugin addressing this need][3], I started
+reading [Learn Vimscript the Hard Way][4], which made me thing I could write a
+plugin myself, so I did it and had it [reviewed on CodeReview][5], and here it
+is.
 
 Why WinZoZ? [Oh, well…][6]
 

@@ -4,6 +4,7 @@ WinZoZContents	winzoz.txt	/*WinZoZContents*
 WinZoZEnter	winzoz.txt	/*WinZoZEnter*
 WinZoZIntro	winzoz.txt	/*WinZoZIntro*
 WinZoZMappings	winzoz.txt	/*WinZoZMappings*
+g:Winzoz_make_status_line_text	winzoz.txt	/*g:Winzoz_make_status_line_text*
 g:winzoz_disable	winzoz.txt	/*g:winzoz_disable*
 g:winzoz_style	winzoz.txt	/*g:winzoz_style*
 g:winzoz_trigger	winzoz.txt	/*g:winzoz_trigger*

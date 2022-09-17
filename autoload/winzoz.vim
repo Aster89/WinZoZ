@@ -7,7 +7,7 @@ export def Run(): void
   exe 'echohl ' .. g:winzoz_style
   const columns = &columns
   try
-    echo MakeStatusLine(expand('%:p'), columns)
+    echo MakeStatusLine(g:Winzoz_make_status_line_text(), columns)
     var key = ''
     var count = ''
     while key !=# "\<Esc>"
@@ -16,7 +16,7 @@ export def Run(): void
       execute "normal! \<c-w>" .. count .. key
       echo ''
       redrawstatus!
-      echo MakeStatusLine(expand('%:p'), columns)
+      echo MakeStatusLine(g:Winzoz_make_status_line_text(), columns)
     endwhile
     echo ''
     redrawstatus!
