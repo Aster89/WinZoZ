@@ -1,7 +1,7 @@
 " autoload/winzoz.vim
 
 function! winzoz#goZoZ() abort
-  redrawstatus!
+  redraw
   exe 'echohl ' . g:winzoz_style
   let columns = &columns
   try
@@ -11,12 +11,11 @@ function! winzoz#goZoZ() abort
       let [key, l:count] = s:get_count_and_key(g:Winzoz_getchar)
       let key = s:one_more_key_after_g(g:Winzoz_getchar, key)
       execute "normal! \<c-w>" . l:count . key
-      echo ''
-      redrawstatus!
+      redraw
       echo s:make_status_line(expand('%:p'), columns)
     endw
     echo ''
-    redrawstatus!
+    redraw
   finally
     echohl None
   endtry
