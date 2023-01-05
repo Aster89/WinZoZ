@@ -3,7 +3,7 @@ vim9script noclear
 const GetChar = () => getcharstr()
 
 export def Run(): void
-  redrawstatus!
+  redraw
   exe 'echohl ' .. g:winzoz_style
   const columns = &columns
   try
@@ -14,12 +14,11 @@ export def Run(): void
       [count, key] = GetCountAndKey(GetChar)
       key = OneMoreKeyAfterG(GetChar, key)
       execute "normal! \<c-w>" .. count .. key
-      echo ''
-      redrawstatus!
+      redraw
       echo MakeStatusLine(g:Winzoz_make_status_line_text(), columns)
     endwhile
     echo ''
-    redrawstatus!
+    redraw
   finally
     echohl None
   endtry
